@@ -1,0 +1,18 @@
+.newsinfo-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #f2f5f8;
+  border-radius: 35px;
+  padding-left: 1em;
+  margin-top: 2em;
+}
+.newsinfo-input input {
+  border: none;
+  outline: none;
+  width: 60%;
+}
+.newsinfo-input button {
+  width: 20%;
+  border-radius: 5px;
+}

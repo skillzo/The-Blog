@@ -1,0 +1,19 @@
+.search-filter {
+  padding: 0 0.5em;
+  overflow-x: scroll;
+  margin-top: 1.5em;
+}
+.scroller {
+  display: flex;
+  width: 1000%;
+  animation: scroll 100s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
