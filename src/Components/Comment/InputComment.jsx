@@ -6,7 +6,7 @@ import { ACTIONS } from "../../Store/Context/AuthContext";
 
 function InputComment() {
   const [commentInput, setCommentInput] = useState("");
-  const { state, dispatch, submitHandler } = useNews();
+  const { dispatch } = useNews();
   return (
     <div className="newsinfo-input">
       <input
@@ -17,7 +17,6 @@ function InputComment() {
       />
       <button
         onClick={() => {
-          // submitHandler();
           dispatch({
             type: ACTIONS.ADD_COMMENT,
             payload: { value: commentInput },

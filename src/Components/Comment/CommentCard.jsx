@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { ACTIONS, useNews } from "../../Store/Context/AuthContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import "./commentcard.css";
 
 function CommentCard({ comment, id }) {
-  const { state, dispatch  } = useNews();
+  const { dispatch } = useNews();
   return (
     <div className="newsinfo-comment__container">
       <div className="newsinfo-comment__image">
@@ -22,10 +22,13 @@ function CommentCard({ comment, id }) {
         <div className="comment-section">
           <div className="newsinfo-comment__main">{comment}</div>
           <div className="manage-comment">
-            <EditIcon sx={{ color: "#B6B6B6" }}  />
-            <DeleteIcon sx={{ color: "#cf3232" }} onClick= {()=> {
-              dispatch({type: ACTIONS.REMOVE_COMMENT, payload:{id: id }})
-            }}/>
+            <EditIcon sx={{ color: "#B6B6B6" }} />
+            <DeleteIcon
+              sx={{ color: "#cf3232" }}
+              onClick={() => {
+                dispatch({ type: ACTIONS.REMOVE_COMMENT, payload: { id: id } });
+              }}
+            />
           </div>
         </div>
       </div>

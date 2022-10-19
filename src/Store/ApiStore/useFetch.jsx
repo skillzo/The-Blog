@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
+import { useNews } from "../Context/AuthContext";
 
-function useFetch(url, options) {
+function useFetch() {
+  const { input } = useNews();
   const [data, setData] = useState();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
-
+  const [loading, setLoading] = useState(false);
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": `${process.env.REACT_APP_API_KEY}`,
+      "X-RapidAPI-Host": "newscatcher.p.rapidapi.com",
+    },
+  };
+  const url = `https://newscatcher.p.rapidapi.com/v1/search_enterprise?q=${input}&lang=en&sort_by=relevancy&page=1&media=True`;
   useEffect(() => {
     const timeOut = setTimeout(() => {
       async function getdata() {
@@ -14,32 +23,24 @@ function useFetch(url, options) {
             throw new Error(`This is an Api Error: ${response.status}`);
           } else {
             var cData = await response.json();
+            setLoading(true);
             setData(cData.articles);
             setError("");
           }
         } catch (e) {
           setError(e.message);
           setData("");
+        } finally {
+          setLoading(false);
         }
       }
-      // getdata();
-    }, 3000);
+      getdata();
+    }, 1000);
 
     return () => {
       clearTimeout(timeOut);
     };
-  }, []);
-
-  // useEffect(() => {
-  //   fetch(url, options)
-  //     .then((response) => {
-  //       return response?.json();
-  //     })
-  //     .then((data) => {
-  //       console.log("data; ", data);
-  //       return setData(data?.articles);
-  //     });
-  // }, []);
+  }, [input]);
   const newData = [];
   for (const key in data) {
     newData.push({
@@ -57,8 +58,6 @@ function useFetch(url, options) {
       copyright: data[key].rights,
     });
   }
-
-  console.log("new Data", data);
   return { newData, loading, error };
 }
 

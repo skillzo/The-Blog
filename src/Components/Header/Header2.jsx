@@ -4,8 +4,10 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconCheckboxes } from "../../Components/Button/Button";
 import { useNavigate, Link } from "react-router-dom";
+// import { useNews } from "../../Store/Context/AuthContext";
 
 function Header2({ title, image, category }) {
+  // const { dispatch } = useNews();
   const navigate = useNavigate();
   return (
     <div className="newsinfo-header">
@@ -20,7 +22,13 @@ function Header2({ title, image, category }) {
             </Link>
           </div>
           <div>
-            <IconCheckboxes sx={{ fontSize: 25 }} />
+            <IconCheckboxes
+              sx={{ fontSize: 25 }}
+              // onClick={dispatch({
+              //   type: ACTIONS.ADD_BOOKMARKS,
+              //   // payload: { value: news },
+              // })}
+            />
           </div>
         </div>
       </div>

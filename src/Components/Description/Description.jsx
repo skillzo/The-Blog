@@ -33,9 +33,9 @@ function Description({ summary, author, category, copyright, link }) {
         <p>{copyright}</p>
       </div>
       <div className="newsinfo-tags">
-        <div className="newsinfo-tags__main">ELON MUSK</div>
+        <div className="newsinfo-tags__main">Elon Musk</div>
         <div className="newsinfo-tags__main">{category}</div>
-        <div className="newsinfo-tags__main">TECH</div>
+        <div className="newsinfo-tags__main">Tech</div>
       </div>
     </>
   );
