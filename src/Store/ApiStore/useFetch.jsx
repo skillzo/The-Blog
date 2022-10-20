@@ -40,6 +40,7 @@ function useFetch() {
     return () => {
       clearTimeout(timeOut);
     };
+    // eslint-disable-next-line
   }, [input]);
   const newData = [];
   for (const key in data) {
