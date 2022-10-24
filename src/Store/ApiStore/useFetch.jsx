@@ -16,6 +16,7 @@ function useFetch() {
   const url = `https://newscatcher.p.rapidapi.com/v1/search_enterprise?q=${input}&lang=en&sort_by=relevancy&page=1&media=True`;
   useEffect(() => {
     const timeOut = setTimeout(() => {
+      setLoading(true);
       async function getdata() {
         try {
           const response = await fetch(url, options);
@@ -23,7 +24,6 @@ function useFetch() {
             throw new Error(`This is an Api Error: ${response.status}`);
           } else {
             var cData = await response.json();
-            setLoading(true);
             setData(cData.articles);
             setError("");
           }

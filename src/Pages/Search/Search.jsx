@@ -6,6 +6,7 @@ import Wrapper from "../../Wrapper/Wrapper";
 import NewsCard5 from "../../Components/Cards/Newscard/NewsCard5";
 import { useNews } from "../../Store/Context/AuthContext";
 import useFetch from "../../Store/ApiStore/useFetch";
+import { Card1Skeleton, Card2Skeleton } from "../../Components/Skeleton/Skeletons";
 
 function Search() {
   const { newData, loading } = useFetch();
@@ -17,7 +18,7 @@ function Search() {
   return (
     <Wrapper>
       <SearchBar />
-      {loading && <h1>loading here </h1>}
+      {loading && <Card2Skeleton />}
       <div className="search-filter">
         <div className="scroller">
           {newData.map((news) => {
@@ -32,6 +33,12 @@ function Search() {
           })}
         </div>
       </div>
+      {loading && (
+        <div>
+          <Card1Skeleton /> <Card1Skeleton />
+          <Card1Skeleton /> <Card1Skeleton />
+        </div>
+      )}
       {filteredData.map((news) => {
         return (
           <NewsCard4

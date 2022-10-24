@@ -4,18 +4,24 @@ import NewsCard2 from "../../Components/Cards/Newscard/NewsCard2";
 import NewsCard3 from "../../Components/Cards/Newscard/NewsCard3";
 import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
+import {
+  Card1Skeleton,
+  Card2Skeleton,
+  ImageSkeleton,
+} from "../../Components/Skeleton/Skeletons";
 import useFetch from "../../Store/ApiStore/useFetch";
 
 function Home() {
   const { newData, loading, error } = useFetch();
   return (
     <div className="container">
-      {loading && <>Loading here</>}
       {error && <h1>An Error Occured</h1>}
       <div className="container1">
         <Navbar />
         <h1 className="header-main">THE BLOG</h1>
+
         <div className="header-container">
+          {loading && <ImageSkeleton />}
           {newData.slice(0, 1).map((news) => {
             return (
               <NewsCard1
@@ -28,7 +34,9 @@ function Home() {
               />
             );
           })}
+
           <div className="header-newscard2-container">
+            {loading && <Card1Skeleton />}
             {newData.slice(1, 5).map((news) => {
               return (
                 <NewsCard2
@@ -43,7 +51,9 @@ function Home() {
           </div>
         </div>
       </div>
+      {loading && <Card2Skeleton />}
       <div className="section2-container">
+       
         {newData.slice(6, 12).map((news) => {
           return (
             <NewsCard3

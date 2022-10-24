@@ -13,7 +13,7 @@ function Bookmarks() {
     <Wrapper>
       <div className="bookmarks-header">
         <div className="bookmarks-icon" onClick={() => navigate(-1)}>
-          <ArrowBackIosNewIcon sx={{ fontSize: 20 }} />
+          <ArrowBackIosNewIcon sx={{ fontSize: 20 }}  />
         </div>
         <h2>Bookmarks</h2>
       </div>

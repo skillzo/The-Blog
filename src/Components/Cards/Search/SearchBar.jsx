@@ -9,17 +9,17 @@ function SearchBar() {
   const { input, inputHandler } = useNews();
   return (
     <div className="scontainer">
+      <div className="back-icon" onClick={() => navigate(-1)}>
+        <ArrowBackIosNewIcon sx={{ fontSize: 20 }} />
+      </div>
       <div className="search-container">
-        <SearchIcon />
+        <SearchIcon sx={{ color: "#ccc" }} />
         <input
           type="search"
           placeholder="Search your intresting news..."
           value={input}
           onChange={inputHandler}
         />
-      </div>
-      <div className="back-icon" onClick={() => navigate(-1)}>
-        <ArrowBackIosNewIcon sx={{ fontSize: 20 }} />
       </div>
     </div>
   );

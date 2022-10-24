@@ -1,0 +1,9 @@
+.skeleton-container {
+  margin-top: 2em;
+}
+.card2-skeleton {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5em;
+  margin-top: 2em;
+}

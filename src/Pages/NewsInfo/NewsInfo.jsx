@@ -7,9 +7,10 @@ import Description from "../../Components/Description/Description";
 import InputComment from "../../Components/Comment/InputComment";
 import { useNews } from "../../Store/Context/AuthContext";
 import useFetch from "../../Store/ApiStore/useFetch";
+import { Image2Skeleton, ImageSkeleton, TextSkeleton } from "../../Components/Skeleton/Skeletons";
 
 function NewsInfo() {
-  const { newData } = useFetch();
+  const { newData, loading } = useFetch();
   const { state } = useNews();
   const { id } = useParams();
   const newsData2 = newData.filter((news) => {
@@ -17,6 +18,7 @@ function NewsInfo() {
   });
   return (
     <div className="newsinfo-container">
+      {loading && <Image2Skeleton />}
       {newsData2?.map((news) => {
         return (
           <Header2
@@ -31,6 +33,7 @@ function NewsInfo() {
         );
       })}
       <div className="newsinfo-body">
+      {loading && <TextSkeleton />}
         {newsData2.map((news) => {
           return (
             <Description
