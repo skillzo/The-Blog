@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import { useNews } from "../../Store/Context/AuthContext";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 function Navbar() {
   const keyword = [
     "news",
@@ -23,8 +27,7 @@ function Navbar() {
     "employment",
   ];
   const randomNumber = Math.floor(Math.random() * keyword.length);
-  const { setInput } = useNews();
-  const [isClicked, setIsClicked] = useState(true);
+  const { setInput, isClicked, setIsClicked } = useNews();
 
   function clickHandler() {
     if (isClicked === false) {
@@ -44,16 +47,92 @@ function Navbar() {
         >
           <nav>
             <ul>
-              <li onClick={() => setInput("science")}>SCIENCE</li>
-              <li onClick={() => setInput("tech")}>TECH</li>
-              <li onClick={() => setInput("politics")}>POLITICS</li>
-              <li onClick={() => setInput("crypto")}>CRYPTO</li>
-              <li onClick={() => setInput("business")}>BUSINESS</li>
-              <li onClick={() => setInput("economics")}>ECONOMICS</li>
-              <li onClick={() => setInput("entertainment")}>ENTERTAINMENT</li>
-              <li onClick={() => setInput("sport")}>SPORT</li>
-              <li onClick={() => setInput("finance")}>FINANCE</li>
-              <li onClick={() => setInput(`${keyword[randomNumber]}`)}>
+              <li
+                onClick={() => {
+                  setInput("headlines");
+                  setIsClicked(true);
+                }}
+              >
+                HEADLINES
+              </li>
+              <li
+                onClick={() => {
+                  setInput("science");
+                  setIsClicked(true);
+                }}
+              >
+                SCIENCE
+              </li>
+              <li
+                onClick={() => {
+                  setInput("tech");
+                  setIsClicked(true);
+                }}
+              >
+                TECH
+              </li>
+              <li
+                onClick={() => {
+                  setInput("politics");
+                  setIsClicked(true);
+                }}
+              >
+                POLITICS
+              </li>
+              <li
+                onClick={() => {
+                  setInput("crypto");
+                  setIsClicked(true);
+                }}
+              >
+                CRYPTO
+              </li>
+              <li
+                onClick={() => {
+                  setInput("business");
+                  setIsClicked(true);
+                }}
+              >
+                BUSINESS
+              </li>
+              <li
+                onClick={() => {
+                  setInput("economics");
+                  setIsClicked(true);
+                }}
+              >
+                ECONOMICS
+              </li>
+              <li
+                onClick={() => {
+                  setInput("entertainment");
+                  setIsClicked(true);
+                }}
+              >
+                ENTERTAINMENT
+              </li>
+              <li
+                onClick={() => {
+                  setInput("sport");
+                  setIsClicked(true);
+                }}
+              >
+                SPORT
+              </li>
+              <li
+                onClick={() => {
+                  setInput("finance");
+                  setIsClicked(true);
+                }}
+              >
+                FINANCE
+              </li>
+              <li
+                onClick={() => {
+                  setInput(`${keyword[randomNumber]}`);
+                  setIsClicked(true);
+                }}
+              >
                 RANDOM
               </li>
               <Link to="/search">
@@ -64,14 +143,24 @@ function Navbar() {
               </Link>
             </ul>
           </nav>
+          <div className="navbar-mobile__socials">
+            <div>
+              <InstagramIcon />
+            </div>
+            <div>
+              <TwitterIcon />
+            </div>
+            <div>
+              <LinkedInIcon />
+            </div>
+            <div>
+              <GitHubIcon />
+            </div>
+          </div>
+          {/* /////////////////// */}
         </div>
       </div>
-      <div className="navbar-mobile__socials">
-        <div>logo</div>
-        <div>logo</div>
-        <div>logo</div>
-        <div>logo</div>
-      </div>
+
       <div className="ham" onClick={clickHandler}>
         {isClicked ? <MenuIcon /> : <CloseIcon />}
       </div>

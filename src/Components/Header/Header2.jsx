@@ -37,7 +37,7 @@ function Header2({ title, image, category }) {
       </div>
       <div className="newsinfo-title">
         <div className="newsinfo-category">{category}</div>
-        <h2>{title}</h2>
+        <h2>{title.slice(0, 80)}</h2>
       </div>
     </div>
   );

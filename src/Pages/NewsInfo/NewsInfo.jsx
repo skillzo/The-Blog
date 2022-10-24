@@ -7,7 +7,10 @@ import Description from "../../Components/Description/Description";
 import InputComment from "../../Components/Comment/InputComment";
 import { useNews } from "../../Store/Context/AuthContext";
 import useFetch from "../../Store/ApiStore/useFetch";
-import { Image2Skeleton, ImageSkeleton, TextSkeleton } from "../../Components/Skeleton/Skeletons";
+import {
+  Image2Skeleton,
+  TextSkeleton,
+} from "../../Components/Skeleton/Skeletons";
 
 function NewsInfo() {
   const { newData, loading } = useFetch();
@@ -33,7 +36,7 @@ function NewsInfo() {
         );
       })}
       <div className="newsinfo-body">
-      {loading && <TextSkeleton />}
+        {loading && <TextSkeleton />}
         {newsData2.map((news) => {
           return (
             <Description

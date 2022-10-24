@@ -91,6 +91,7 @@ const reducer = (InitialState, { type, payload }) => {
 export const NewsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, InitialState);
   const [input, setInput] = useState(`${keyword[randomNumber]}`);
+  const [isClicked, setIsClicked] = useState(true);
 
   const inputHandler = (e) => {
     setInput(e.target.value);
@@ -102,6 +103,8 @@ export const NewsContextProvider = ({ children }) => {
     inputHandler,
     state,
     dispatch,
+    isClicked,
+    setIsClicked,
   };
   return <NewsContext.Provider value={value}>{children}</NewsContext.Provider>;
 };
