@@ -35,7 +35,7 @@ function useFetch() {
         }
       }
       getdata();
-    }, 3000);
+    }, 1000);
 
     return () => {
       clearTimeout(timeOut);
